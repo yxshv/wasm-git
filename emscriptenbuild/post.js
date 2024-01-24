@@ -87,7 +87,7 @@ if(ENVIRONMENT_IS_WORKER) {
 							throw new Error("Missing environmental variables");
 						}
 
-						const value = `Basic ${new Buffer(`${usr}:${token}`).toString("base64")}`
+						const value = `Basic ${Buffer.from(`${usr}:${token}`).toString("base64")}`
 							
 						headers = headers ? { Authorization: value  , ...headers } : { Authorization: value }
 
