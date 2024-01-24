@@ -83,7 +83,11 @@ if(ENVIRONMENT_IS_WORKER) {
 
 						const { GIT_USERNAME: usr, GIT_TOKEN: token } = process.env;
 
-						const value = `Basic ${new Buffer(`${usr}:${token}`).toString("base64"))}`}
+						if (!(usr || token)) {
+							throw new Error("Missing environmental variables");
+						}
+
+						const value = `Basic ${new Buffer(`${usr}:${token}`).toString("base64")}`}
 							
 						headers = headers ? { Authorization: value  , ...headers } : { Authorization: value }
 
