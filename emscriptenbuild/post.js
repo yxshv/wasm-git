@@ -80,6 +80,13 @@ if(ENVIRONMENT_IS_WORKER) {
         
             const resultBuffer = new SharedArrayBuffer(buffersize);
             const resultArray = new Uint8Array(resultBuffer);
+
+						const { GIT_USERNAME: usr, GIT_TOKEN: token } = process.env;
+
+						const value = `Basic ${new Buffer(`${usr}:${token}`).toString("base64"))}`}
+							
+						headers = headers ? { Authorization: value  , ...headers } : { Authorization: value }
+
             const workerData =  {
                     statusArray: statusArray,
                     resultArray: resultArray,

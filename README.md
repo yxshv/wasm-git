@@ -1,1 +1,1 @@
-A fork for implementing custom commands, and authenticating requests
+A fork for implementing custom commands, and authorizing requests
