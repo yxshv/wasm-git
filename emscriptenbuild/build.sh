@@ -44,4 +44,4 @@ mv ./libgit2/examples/lg2.js.tmp ./libgit2/examples/lg2.js
 printf "\n\nexport default Module;" >> ./libgit2/examples/lg2.js
 
 
-print "\n\nALL DONE"
+printf "\n\nALL DONE"
