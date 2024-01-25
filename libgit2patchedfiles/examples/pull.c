@@ -14,8 +14,19 @@ int lg2_pull(git_repository *repo, int argc, char *argv[]) {
         return EXIT_FAILURE;
     }
 
-    const char *repository_path = argv[1];
-    const char *branch_name = argv[2];
+		const char *repository_path = git_repository_path(repo);
+
+    // Get the currently checked-out branch
+    git_reference *head_ref = NULL;
+    if (git_repository_head(&head_ref, repo) != GIT_OK) {
+        print_error("git_repository_head", -1);
+        git_repository_free(repo);
+        git_libgit2_shutdown();
+        return EXIT_FAILURE;
+    }
+
+    const char *branch_name = git_reference_name(head_ref);
+
 
     git_libgit2_init();
 

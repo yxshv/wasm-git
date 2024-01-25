@@ -28,16 +28,17 @@ struct {
 	{ "ls-files",     lg2_ls_files,     1 },
 	{ "ls-remote",    lg2_ls_remote,    1 },
 	{ "merge",        lg2_merge,        1 },
-	{ "push",         lg2_push,        1  },
+	{ "push",         lg2_push,         1 },
 	{ "remote",       lg2_remote,       1 },
-	{ "reset",        lg2_reset,       1 },
-	{ "revert",        lg2_revert,       1 },
+	{ "reset",        lg2_reset,        1 },
+	{ "revert",       lg2_revert,       1 },
 	{ "rev-list",     lg2_rev_list,     1 },
 	{ "rev-parse",    lg2_rev_parse,    1 },
 	{ "show-index",   lg2_show_index,   0 },
 	{ "stash",        lg2_stash,        1 },
 	{ "status",       lg2_status,       1 },
 	{ "tag",          lg2_tag,          1 },
+	{ "pull",					lg2_pull,					0 },
 };
 
 static int run_command(git_command_fn fn, git_repository *repo, struct args_info args)

@@ -39,4 +39,9 @@ emcmake cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_C_FLAGS="$EXTRA_CMAKE_C_FLA
 emmake make lg2
 
 
-sed -e "s/fs.mkdirSync(path, node.mode)/fs.mkdirSync(path, {recursive:true,mode:node.mode})/g" -e "s/fs.writeFileSync(path, '', { mode: node.mode });/fs.writeFileSync(path, '', { mode: node.mode, recursive: true });/g" ./libgit2/examples/lg2.js
+sed -e "s/fs.mkdirSync(path, node.mode)/fs.mkdirSync(path, {recursive:true,mode:node.mode})/g" -e "s/fs.writeFileSync(path, '', { mode: node.mode });/fs.writeFileSync(path, '', { mode: node.mode, recursive: true });/g" ./libgit2/examples/lg2.js.tmp
+mv ./libgit2/examples/lg2.js.tmp ./libgit2/examples/lg2.js
+printf "\n\nexport default Module;" >> ./libgit2/examples/lg2.js
+
+
+print "\n\nALL DONE"
