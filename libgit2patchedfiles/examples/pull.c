@@ -6,13 +6,13 @@
 int lg2_pull(git_repository *repo, int argc, char **argv) {
 
 	int error = 0;
-
+	
 	char *_argv[2];
 	_argv[0] = "fetch";
 	_argv[1] = "origin";
-
+	
 	lg2_fetch(repo, 2, _argv);
-
+	
 	git_reference *head;
 	const char *branch = NULL;
 
@@ -53,8 +53,5 @@ int lg2_pull(git_repository *repo, int argc, char **argv) {
 cleanup:
 	git_reference_free(head);
 	git_repository_free(repo);
-
-
-
 }
 
