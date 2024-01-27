@@ -15,11 +15,10 @@ int lg2_pull(git_repository *repo, int argc, char **argv) {
 	int error = 0;
 
 	char *_argv[2];
-	argv[0] = "fetch";
-	argv[1] = "origin";
+	_argv[0] = "fetch";
+	_argv[1] = "origin";
 
 	lg2_fetch(repo, 2, _argv);
-
 
 	git_reference *head;
 	const char *branch = NULL;
@@ -48,6 +47,8 @@ int lg2_pull(git_repository *repo, int argc, char **argv) {
 		__argv[0] = "merge";
 		__argv[1] = name;
 
+		fprintf("%s \n", name);
+
 		lg2_merge(repo, 2, __argv);
 
   } else {
@@ -55,6 +56,8 @@ int lg2_pull(git_repository *repo, int argc, char **argv) {
 	}
 
 	printf("\nSuccessfully pulled!\n");
+
+	return 0;
 
 cleanup:
 	git_reference_free(head);
