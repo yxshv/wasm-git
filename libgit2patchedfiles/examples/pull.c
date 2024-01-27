@@ -3,13 +3,6 @@
 #include <git2.h>
 #include <stdio.h>
 
-void check_error(int error, const char *message) {
-    if (error != 0) {
-        fprintf(stderr, "%s: %s\n", message, git_error_last());
-        exit(1);
-    }
-}
-
 int lg2_pull(git_repository *repo, int argc, char **argv) {
 
 	int error = 0;
@@ -39,9 +32,6 @@ int lg2_pull(git_repository *repo, int argc, char **argv) {
 				fprintf(stderr, "Memory allocation failed\n");
 				goto cleanup;
 		}
-
-		// Create the formatted name
-		sprintf(name, "origin/%s", branch);
 
 		printf("%s \n", name);
 
