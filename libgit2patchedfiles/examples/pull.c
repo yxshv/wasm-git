@@ -22,7 +22,7 @@ int lg2_pull(git_repository *repo, int argc, char **argv) {
 	argv[0] = "merge";
 	argv[1] = "origin/master";
 
-	lg2_merge(repo, argc, __argv);
+	lg2_merge(repo, 2, __argv);
 
 	printf("\nSuccessfully pulled!\n");
 
