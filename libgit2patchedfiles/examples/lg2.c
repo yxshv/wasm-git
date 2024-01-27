@@ -38,7 +38,7 @@ struct {
 	{ "stash",        lg2_stash,        1 },
 	{ "status",       lg2_status,       1 },
 	{ "tag",          lg2_tag,          1 },
-	{ "pull",					lg2_pull,					0 },
+	{ "pull",					lg2_pull,					1 },
 };
 
 static int run_command(git_command_fn fn, git_repository *repo, struct args_info args)
