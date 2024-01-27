@@ -43,11 +43,12 @@ int lg2_pull(git_repository *repo, int argc, char **argv) {
 		// Create the formatted name
 		sprintf(name, "origin/%s", branch);
 
+		printf("%s \n", name);
+
 		char *__argv[2];
 		__argv[0] = "merge";
 		__argv[1] = name;
 
-		fprintf("%s \n", name);
 
 		lg2_merge(repo, 2, __argv);
 
